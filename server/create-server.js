@@ -5,7 +5,7 @@ module.exports = function createServer({ db }) {
   const app = express()
 
   app.get('/', (req, res, next) => {
-    db.query(`select 'success!' as "message"`)
+    db.query(`select 'success' as "message"`)
       .then(({ rows: [row] }) => {
         res.send(`
            <!DOCTYPE html>
@@ -38,7 +38,7 @@ module.exports = function createServer({ db }) {
   })
 
   app.get('/api', (req, res, next) => {
-    db.query(`select 'success!' as "message"`)
+    db.query(`select 'success' as "message"`)
       .then(({ rows: [row] }) => {
         res.json({ message: row.message })
       })
