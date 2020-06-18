@@ -14,24 +14,12 @@ describe('create server', () => {
     })().catch(done)
   })
 
-  describe('/', () => {
-
-    it('returns some HTML', async () => {
-      const { status, data } = await axios.get(process.env.ORIGIN)
-      expect(status).to.equal(200)
-      expect(data)
-        .to.be.a('string')
-        .that.includes('success!')
-    })
-
-  })
-
   describe('/api', () => {
 
     it('returns some JSON', async () => {
       const { status, data } = await axios.get(`${process.env.ORIGIN}/api`)
       expect(status).to.equal(200)
-      expect(data).to.deep.equal({ message: 'success!' })
+      expect(data).to.deep.equal({ message: 'success' })
     })
 
   })
